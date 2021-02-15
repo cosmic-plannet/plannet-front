@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -34,4 +35,4 @@ const Header = ({ history }) => {
     );
 };
 
-export default Header;
+export default withRouter(Header);
