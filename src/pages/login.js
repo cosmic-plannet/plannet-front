@@ -36,7 +36,7 @@ const Login = ({ history }) => {
             <Logo></Logo>
             <Title>나만의 온라인 스터디 플랫폼, PLAN:NET</Title>
             <SubTitle>스터디에 참여하여 팀원들과 PLANET을 멋지게 성장시켜 보세요!</SubTitle>
-            <LoginBtn onClick={() => movePage("")}>구글 로그인</LoginBtn>
+            <LoginBtn onClick={() => movePage("interest")}>구글 로그인</LoginBtn>
         </Wrapper>
     );
 };
