@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/header";
+import Carousel from "../components/carousel";
 //import { getQuestion, getToday } from "store/box";
 
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* min-width: 1200px; */
 `;
 const Logo = styled.img``;
 
-const Title = styled.div`
-    font-size: 30px;
+const TitleBox = styled.div`
+    font-size: 20px;
     padding: 1rem 0;
+    width: 100%;
+    text-align: left;
 `;
 
-const SubTitle = styled.div``;
-
-const LoginBtn = styled.button`
+const MakeBtn = styled.button`
     border: 1px solid black;
-    width: 100px;
+    width: 200px;
     background-color: white;
-    margin-top: 1rem;
+    margin-left: 70%;
+`;
+
+const PlanetBox = styled.div`
+    width: 250px;
+    height: 150px;
+    border: 1px solid black;
+`;
+const PlanetName = styled.div`
+    width: 100%;
+`;
+const PlanetInfo = styled.div`
+    border: 1px solid;
 `;
 
 const Main = ({ history }) => {
@@ -36,8 +52,36 @@ const Main = ({ history }) => {
     // const move = () => {
     //     history.push("/record");
     // };
-
-    return <div></div>;
+    let planets = [
+        { name: "study0", category: "english", level: 1, person: 3 },
+        { name: "study1", category: "english", level: 1, person: 3 },
+        { name: "study2", category: "english", level: 1, person: 3 },
+        { name: "study3", category: "english", level: 1, person: 3 },
+        { name: "study4", category: "english", level: 1, person: 3 },
+    ];
+    return (
+        <React.Fragment>
+            <Header></Header>
+            <Wrapper>
+                <MakeBtn>PLANET 만들기</MakeBtn>
+                <TitleBox>나의 PLANET</TitleBox>
+                <div style={{ width: "90%" }}>
+                    <Carousel
+                        planets={planets.map((planet) => {
+                            return (
+                                <PlanetBox>
+                                    <PlanetName>{planet.name}</PlanetName>
+                                    <PlanetInfo>{planet.category}</PlanetInfo>
+                                    <PlanetInfo>{planet.level}</PlanetInfo>
+                                    <PlanetInfo>{planet.person}</PlanetInfo>
+                                </PlanetBox>
+                            );
+                        })}
+                    ></Carousel>
+                </div>
+            </Wrapper>
+        </React.Fragment>
+    );
 };
 
 export default Main;
