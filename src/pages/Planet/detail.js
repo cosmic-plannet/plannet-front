@@ -14,9 +14,7 @@ const PlanetInfoBox = styled.div`
     display: flex;
     flex-direction: column;
 `;
-const LeaderImg = styled.div`
-    
-`;
+const LeaderImg = styled.div``;
 const Title = styled.div`
     padding-top: 3rem;
 `;
@@ -91,7 +89,11 @@ const Done = styled.div`
     text-decoration: line-through;
 `;
 
-const PlanetDetail = ({ match }) => {
+const PlanetDetail = ({ match, history }) => {
+    const movePage = (page) => {
+        history.push(`/${page}`);
+    };
+
     let isLeader = true;
     let isMember = true;
 
@@ -118,7 +120,11 @@ const PlanetDetail = ({ match }) => {
                     <GrowthTitle>PLANET 성장도</GrowthTitle>
                     <GrowthBox>
                         슬라이더
-                        {isMember && isLeader ? <StudyCompleteBtn>진행중(100%일때 탐사완료로 변경)</StudyCompleteBtn> : <div>진행중</div>}
+                        {isMember && isLeader ? (
+                            <StudyCompleteBtn onClick={() => movePage("evaluation")}>진행중(100%일때 탐사완료로 변경)</StudyCompleteBtn>
+                        ) : (
+                            <div>진행중</div>
+                        )}
                         {isMember && isLeader ? <RecruitCompleteBtn>모집완료</RecruitCompleteBtn> : null}
                     </GrowthBox>
                     {isMember ? <StartBtn>탐사 시작하기</StartBtn> : <StartBtn>탐사대 가입하기</StartBtn>}
