@@ -7,6 +7,7 @@ import Mypage from "./pages/mypage.js";
 import Ranking from "./pages/ranking.js";
 import Planet from "./pages/Planet/planet.js";
 import Evaluation from "./pages/evaluation.js";
+import Complete from "./pages/complete.js";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route exact path="/planet" component={Planet} />
                 <Route path="/planet/:text/:id?" component={Planet} />
                 <Route path="/evaluation" component={Evaluation} />
+                <Route path="/complete" component={Complete} />
                 <Route render={({ location }) => <div>이 페이지는 존재하지 않습니다:{location.pathname}</div>}></Route>
             </Switch>
         </BrowserRouter>

@@ -32,7 +32,7 @@ const MemberInfoBox = styled.div`
 const MemberInfo = styled.div`
     padding: 0 1rem;
 `;
-const EvaluteBox = styled.div`
+const EvaluateBox = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 90%;
@@ -56,12 +56,21 @@ const CompleteBtn = styled.button`
     margin-top: 1rem;
 `;
 
-const Login = ({ history }) => {
+const Evaluation = ({ history }) => {
     const movePage = (page) => {
         history.push(`/${page}`);
     };
 
-    const interests = ["영어", "컴퓨터", "취직/면접", "제2외국어", "자격증", "시험"];
+    const evaluations = [
+        "성실해요",
+        "열정적이에요",
+        "적극적이에요",
+        "또 같이 하고 싶어요",
+        "보통이에요",
+        "지각이 잦아요",
+        "공유도가 낮아요",
+        "소극적이에요",
+    ];
     let selects = [];
     const select = (index) => {
         selects.push(index);
@@ -94,10 +103,23 @@ const Login = ({ history }) => {
                     <MemberInfo>{members[index].attend}</MemberInfo>
                     <MemberInfo>{members[index].todo}</MemberInfo>
                 </MemberInfoBox>
-                <CompleteBtn disabled={index === members.length - 1 ? false : true}>선택 완료</CompleteBtn>
+                <EvaluateBox>
+                    {evaluations.map((evaluation, index) => {
+                        return <Evaluate onClick={() => select(index)}>{evaluation}</Evaluate>;
+                    })}
+                </EvaluateBox>
+                <CompleteBtn
+                    onClick={() => {
+                        complete();
+                        movePage("complete");
+                    }}
+                    disabled={index === members.length - 1 ? false : true}
+                >
+                    선택 완료
+                </CompleteBtn>
             </Wrapper>
         </React.Fragment>
     );
 };
 
-export default Login;
+export default Evaluation;
