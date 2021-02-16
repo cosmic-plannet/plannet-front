@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/header";
 import Carousel from "../components/carousel";
+import { Link } from "react-router-dom";
 //import { getQuestion, getToday } from "store/box";
 
 const Wrapper = styled.div`
@@ -78,11 +79,11 @@ const Main = ({ history }) => {
     };
 
     let planets = [
-        { name: "study0", category: "english", level: 1, person: 3 },
-        { name: "study1", category: "english", level: 1, person: 3 },
-        { name: "study2", category: "english", level: 1, person: 3 },
-        { name: "study3", category: "english", level: 1, person: 3 },
-        { name: "study4", category: "english", level: 1, person: 3 },
+        { name: "study0", category: "english", level: 1, person: 3, id: 0 },
+        { name: "study1", category: "english", level: 1, person: 3, id: 1 },
+        { name: "study2", category: "english", level: 1, person: 3, id: 2 },
+        { name: "study3", category: "english", level: 1, person: 3, id: 3 },
+        { name: "study4", category: "english", level: 1, person: 3, id: 4 },
     ];
     return (
         <React.Fragment>
@@ -96,12 +97,14 @@ const Main = ({ history }) => {
                     <Carousel
                         planets={planets.map((planet) => {
                             return (
-                                <PlanetBox>
-                                    <PlanetName>{planet.name}</PlanetName>
-                                    <PlanetInfo>{planet.category}</PlanetInfo>
-                                    <PlanetInfo>{planet.level}</PlanetInfo>
-                                    <PlanetInfo>{planet.person}</PlanetInfo>
-                                </PlanetBox>
+                                <Link to={`/planet/detail/${planet.id}`}>
+                                    <PlanetBox>
+                                        <PlanetName>{planet.name}</PlanetName>
+                                        <PlanetInfo>{planet.category}</PlanetInfo>
+                                        <PlanetInfo>{planet.level}</PlanetInfo>
+                                        <PlanetInfo>{planet.person}</PlanetInfo>
+                                    </PlanetBox>
+                                </Link>
                             );
                         })}
                     ></Carousel>
