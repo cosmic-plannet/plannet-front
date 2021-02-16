@@ -5,6 +5,7 @@ import Login from "./pages/login.js";
 import Interest from "./pages/interest.js";
 import Mypage from "./pages/mypage.js";
 import Ranking from "./pages/ranking.js";
+import Planet from "./pages/Planet/planet.js";
 
 function App() {
     return (
@@ -15,6 +16,8 @@ function App() {
                 <Route path="/interest" component={Interest} exact></Route>
                 <Route path="/mypage" component={Mypage} exact></Route>
                 <Route path="/ranking" component={Ranking} exact></Route>
+                <Route exact path="/planet" component={Planet} />
+                <Route path="/planet/:text/:id?" component={Planet} />
                 <Route render={({ location }) => <div>이 페이지는 존재하지 않습니다:{location.pathname}</div>}></Route>
             </Switch>
         </BrowserRouter>
