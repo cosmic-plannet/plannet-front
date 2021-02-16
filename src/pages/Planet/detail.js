@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/header";
+import Slider from "../../components/slider";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -22,7 +23,9 @@ const GrowthTitle = styled.div`
     padding: 1rem 0;
 `;
 const GrowthBox = styled.div``;
-const StudyCompleteBtn = styled.button``;
+const StudyCompleteBtn = styled.button`
+    width: 100px;
+`;
 const RecruitCompleteBtn = styled.button``;
 const StartBtn = styled.button`
     margin: 1rem 0;
@@ -110,6 +113,18 @@ const PlanetDetail = ({ match, history }) => {
 
     const [DoingTab, SetDoingTab] = useState(true);
 
+    const [complete, setComplete] = useState(false);
+    const [growth, setGrowth] = React.useState(20);
+    const handleChange = (event, newValue) => {
+        setGrowth(newValue);
+        if (newValue === 100) {
+            //console.log("complete");
+            setComplete(true);
+        } else {
+            setComplete(false);
+        }
+    };
+
     return (
         <React.Fragment>
             <Header></Header>
@@ -119,9 +134,11 @@ const PlanetDetail = ({ match, history }) => {
                     <Title>한 달만에 토익 뿌시기</Title>
                     <GrowthTitle>PLANET 성장도</GrowthTitle>
                     <GrowthBox>
-                        슬라이더
+                        <Slider value={growth} handleChange={handleChange}></Slider>
                         {isMember && isLeader ? (
-                            <StudyCompleteBtn onClick={() => movePage("evaluation")}>진행중(100%일때 탐사완료로 변경)</StudyCompleteBtn>
+                            <StudyCompleteBtn disabled={complete ? false : true} onClick={() => movePage("evaluation")}>
+                                {complete ? "탐사 완료" : "진행중"}
+                            </StudyCompleteBtn>
                         ) : (
                             <div>진행중</div>
                         )}
