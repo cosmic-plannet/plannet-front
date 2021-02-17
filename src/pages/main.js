@@ -15,40 +15,53 @@ const Wrapper = styled.div`
     align-items: center;
     /* min-width: 1200px; */
 `;
-const Logo = styled.img``;
-
 const TitleBox = styled.div`
-    font-size: 20px;
     padding: 3rem 0;
-    width: 90%;
+    width: 72%;
     display: flex;
 `;
 const Title = styled.div`
     text-align: left;
     flex: 1;
+    font-size: 24px;
+    color: #686196;
 `;
 const MoreBtn = styled.div`
     width: 70px;
     font-size: 15px;
 `;
 const MakeBtn = styled.button`
-    border: 1px solid black;
-    width: 200px;
-    background-color: white;
-    margin-left: 70%;
-    margin-top: 1rem;
+    width: 125px;
+    height: 29px;
+    border-radius: 4px;
+    border: solid 5px #686196;
+    background-color: #686196;
+    color: white;
+    color: #ffffff;
+    margin-top: 14px;
 `;
 
 const PlanetBox = styled.div`
-    width: 250px;
-    height: 150px;
-    border: 1px solid black;
+    width: 100%;
+    height: 206px;
 `;
 const PlanetName = styled.div`
-    width: 100%;
+    font-size: 20px;
+    color: #212121;
+    text-decoration: none;
 `;
 const PlanetInfo = styled.div`
-    border: 1px solid;
+    width: 100%;
+    height: 44px;
+    margin-top: 8px;
+    border-radius: 4px;
+    background-color: rgba(121, 132, 167, 0.15);
+    text-decoration: none;
+    font-size: 15px;
+    color: #212121;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
 `;
 
 const RankingContainer = styled.div`
@@ -89,9 +102,9 @@ const Main = ({ history }) => {
         <React.Fragment>
             <Header></Header>
             <Wrapper>
-                <MakeBtn>PLANET 만들기</MakeBtn>
                 <TitleBox>
                     <Title>나의 PLANET</Title>
+                    <MakeBtn>PLANET 만들기</MakeBtn>
                 </TitleBox>
                 <div style={{ width: "90%" }}>
                     <Carousel
