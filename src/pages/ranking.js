@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/header";
+import { Select } from "antd";
+
 //import { getQuestion, getToday } from "store/box";
 
 const Wrapper = styled.div`
@@ -76,6 +78,11 @@ const Ranking = ({ history }) => {
     // const dispatch = useDispatch();
 
     // useEffect(() => {});
+    const selects = ["영어", "컴퓨터", "취직/면접", "제2외국어", "자격증", "시험"];
+    const { Option } = Select;
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
+    };
 
     const movePage = (page) => {
         history.push(`/${page}`);
@@ -115,7 +122,18 @@ const Ranking = ({ history }) => {
                         </RankingBox>
                     </RankingContainer>
                     <RankingContainer>
-                        <RankingTitle>영어 랭킹</RankingTitle>
+                        <RankingTitle>
+                            <Select
+                                defaultValue={selects[0]}
+                                style={{ width: 120, fontSize: "18px", color: "#686196" }}
+                                bordered={false}
+                                onChange={handleChange}
+                            >
+                                {selects.map((select, index) => {
+                                    return <Option value={index}>{select}</Option>;
+                                })}
+                            </Select>
+                        </RankingTitle>
                         <RankingBox>
                             <RankingList>
                                 <RankingLi>
