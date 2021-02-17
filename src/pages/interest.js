@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import logo from "../assets/logo.png";
+import plannet from "../assets/plannet.png";
 import { useDispatch, useSelector } from "react-redux";
 //import { getQuestion, getToday } from "store/box";
 
@@ -10,32 +12,51 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 `;
-const Logo = styled.img``;
-
-const SubTitle = styled.div``;
+const Logo = styled.img`
+    width: 126px;
+    height: 68px;
+    padding: 0.5rem 0;
+    padding-top: 20%;
+`;
+const Plannet = styled.img`
+    width: 283px;
+    height: 67px;
+`;
+const Title = styled.div`
+    font-size: 20px;
+    color: #212121;
+    padding: 2rem 0 1rem 0;
+`;
 
 const InterestBox = styled.div`
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
-    margin-left: 6rem;
+    /* width: 80%; */
+    margin-left: 4rem;
 `;
 const Interest = styled.button`
-    border: 1px solid black;
-    width: 20%;
-    background-color: white;
-    margin: 1rem 2rem;
-    height: 50px;
+    width: 22%;
+    height: 106px;
+    margin: 3rem;
+    font-size: 24px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 3px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
 
     :hover {
-        background-color: purple;
+        background-color: #686196;
     }
 `;
 const CompleteBtn = styled.button`
-    border: 1px solid black;
-    width: 100px;
-    background-color: white;
-    margin-top: 1rem;
+    width: 250px;
+    height: 46px;
+    border-radius: 4px;
+    border: solid 5px #686196;
+    background-color: #686196;
+    color: white;
+    font-size: 18px;
+    margin-top: 2rem;
 `;
 
 const Login = ({ history }) => {
@@ -55,8 +76,9 @@ const Login = ({ history }) => {
 
     return (
         <Wrapper>
-            <Logo></Logo>
-            <SubTitle>어떤 분야를 스터디하고 싶으신가요? (중복 선택 가능)</SubTitle>
+            <Logo src={logo}></Logo>
+            <Plannet src={plannet}></Plannet>
+            <Title>어떤 분야에 관심이 있으신가요? 마음껏 골라보세요.</Title>
             <InterestBox>
                 {interests.map((interest, index) => {
                     return <Interest onClick={() => select(index)}>{interest}</Interest>;
