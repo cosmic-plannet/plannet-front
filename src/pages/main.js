@@ -61,7 +61,7 @@ const PlanetInfo = styled.div`
     width: 100%;
     height: 44px;
     margin-top: 8px;
-    border-radius: 4px;
+    border-raius: 4px;
     background-color: rgba(121, 132, 167, 0.15);
     text-decoration: none;
     font-size: 15px;
