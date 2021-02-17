@@ -9,6 +9,7 @@ import achieve3 from "../assets/achieve3.png";
 import achieve4 from "../assets/achieve4.png";
 import achieve5 from "../assets/achieve5.png";
 import achieve6 from "../assets/achieve6.png";
+import achieve7 from "../assets/achieve7.png";
 import { Link } from "react-router-dom";
 import level0 from "../assets/level0.png";
 import level1 from "../assets/level1.png";
@@ -90,7 +91,7 @@ const AchieveContainer = styled.div`
     padding: 1rem;
 `;
 const Achieve = styled.div`
-    width: 15%;
+    width: 17%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,7 +100,6 @@ const Achieve = styled.div`
 const AchieveImg = styled.img`
     width: 100px;
     height: 100px;
-    border: 1px solid black;
     border-radius: 100px;
 `;
 const AchieveName = styled.div`
@@ -180,7 +180,16 @@ const Mypage = ({ history }) => {
     const goods = ["성실해요", "열정적이에요", "적극적이에요", "또 같이 하고 싶어요"];
     const bads = ["지각이 잦아요", "공유도가 낮아요", "소극적이에요", "별로에요"];
 
-    const achieves = ["업적 1", "업적 2", "업적 1", "업적 1", "업적 1", "업적 1", "업적 1", "업적 1"];
+    const achieves = [
+        { name: "PLANET 1개 탐사 완료", image: achieve0 },
+        { name: "체크리스트 달성률 100%", image: achieve1 },
+        { name: "PLANET 탐사 참여도 100%", image: achieve2 },
+        { name: "PLANET 10개 탐사 완료", image: achieve3 },
+        { name: "긍정적인 평가 10개 달성", image: achieve4 },
+        { name: "PLANET 15개 탐사 완료", image: achieve5 },
+        { name: "모든 카테고리 탐사 완료", image: achieve6 },
+        { name: "PLANET 20개 탐사 완료", image: achieve7 },
+    ];
 
     let planets = [
         { name: "study0", category: "english", level: 1, person: 3 },
@@ -216,12 +225,11 @@ const Mypage = ({ history }) => {
                 <AchieveSection>
                     <AchieveTitle>내 업적</AchieveTitle>
                     <AchieveContainer>
-                        {achieves.map((achieve, index) => {
-                            let path = `assets/achieve${index}`;
+                        {achieves.map((achieve) => {
                             return (
                                 <Achieve>
-                                    <AchieveImg src={path}></AchieveImg>
-                                    <AchieveName>{achieve}</AchieveName>
+                                    <AchieveImg src={achieve.image}></AchieveImg>
+                                    <AchieveName>{achieve.name}</AchieveName>
                                 </Achieve>
                             );
                         })}
