@@ -13,8 +13,8 @@ function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" component={Main} exact></Route>
-                <Route path="/login" component={Login} exact></Route>
+                <Route path="/main" component={Main} exact></Route>
+                <Route path="/" component={Login} exact></Route>
                 <Route path="/interest" component={Interest} exact></Route>
                 <Route path="/mypage" component={Mypage} exact></Route>
                 <Route path="/ranking" component={Ranking} exact></Route>
