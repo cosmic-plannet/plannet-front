@@ -190,7 +190,6 @@ const Mypage = ({ history }) => {
         { name: "모든 카테고리 탐사 완료", image: achieve6 },
         { name: "PLANET 20개 탐사 완료", image: achieve7 },
     ];
-
     let planets = [
         { name: "study0", category: "english", level: 1, person: 3 },
         { name: "study1", category: "english", level: 1, person: 3 },
