@@ -26,10 +26,6 @@ const Title = styled.div`
     font-size: 24px;
     color: #686196;
 `;
-const MoreBtn = styled.div`
-    width: 70px;
-    font-size: 15px;
-`;
 const MakeBtn = styled.button`
     width: 125px;
     height: 29px;
@@ -44,6 +40,17 @@ const MakeBtn = styled.button`
 const PlanetBox = styled.div`
     width: 100%;
     height: 206px;
+`;
+const PlanetNameBox = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+const PlanetDot = styled.div`
+    width: 13px;
+    height: 13px;
+    background-color: #7984a7;
+    border-radius: 50px;
+    margin: 7px 10px;
 `;
 const PlanetName = styled.div`
     font-size: 20px;
@@ -63,26 +70,77 @@ const PlanetInfo = styled.div`
     align-items: center;
     padding-left: 12px;
 `;
-
+const RankingSection = styled.div`
+    margin-top: 2rem;
+    width: 100%;
+    height: 585px;
+    display: flex;
+    flex-direction: column;
+    background-color: #686196;
+    align-items: center;
+    padding-bottom: 2rem;
+`;
+const RankingSectionTitle = styled.div`
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 2rem 0 1rem 0;
+`;
+const MoreBtn = styled.div`
+    width: 78%;
+    text-align: right;
+    color: white;
+    font-size: 15px;
+    padding-bottom: 0.5rem;
+`;
 const RankingContainer = styled.div`
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 80%;
+    /* border: 1px solid black; */
 `;
 const RankingBox = styled.div`
     flex: 1;
+    height: 393px;
     text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 4px 9px 4px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
+    margin: 0 1rem;
 `;
-const RankingTitle = styled.div``;
+const RankingTitle = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    color: #686196;
+    padding: 1rem;
+`;
 const RankingList = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 `;
-const RankingContent = styled.div``;
+const RankingLi = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+const RankingNum = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    color: #686196;
+`;
+const RankingName = styled.div`
+    font-size: 20px;
+    color: #686196;
+    flex: 1;
+`;
+const RankingContent = styled.div`
+    font-size: 18px;
+    padding: 0 0.3rem;
+`;
 
 const Main = ({ history }) => {
     // const [inputText, setInputText] = useState("");
-    // const id = useSelector((state) => state.auth.profile_id);
+    // const id = useSe3lector((state) => state.auth.profile_id);
     // const dispatch = useDispatch();
 
     // useEffect(() => {});
@@ -112,7 +170,10 @@ const Main = ({ history }) => {
                             return (
                                 <Link to={`/planet/detail/${planet.id}`}>
                                     <PlanetBox>
-                                        <PlanetName>{planet.name}</PlanetName>
+                                        <PlanetNameBox>
+                                            <PlanetDot></PlanetDot>
+                                            <PlanetName>{planet.name}</PlanetName>
+                                        </PlanetNameBox>
                                         <PlanetInfo>{planet.category}</PlanetInfo>
                                         <PlanetInfo>{planet.level}</PlanetInfo>
                                         <PlanetInfo>{planet.person}</PlanetInfo>
@@ -122,29 +183,35 @@ const Main = ({ history }) => {
                         })}
                     ></Carousel>
                 </div>
-
-                <TitleBox>
-                    <Title>랭킹</Title>
-                    <MoreBtn onClick={() => movePage("ranking")}>더보기</MoreBtn>
-                </TitleBox>
-                <RankingContainer>
-                    <RankingBox>
-                        <RankingTitle>PLANET 랭킹</RankingTitle>
-                        <RankingList>
-                            <RankingContent>1위</RankingContent>
-                            <RankingContent>2위</RankingContent>
-                            <RankingContent>3위</RankingContent>
-                        </RankingList>
-                    </RankingBox>
-                    <RankingBox>
-                        <RankingTitle>여행자 랭킹</RankingTitle>
-                        <RankingList>
-                            <RankingContent>1위</RankingContent>
-                            <RankingContent>2위</RankingContent>
-                            <RankingContent>3위</RankingContent>
-                        </RankingList>
-                    </RankingBox>
-                </RankingContainer>
+                <RankingSection>
+                    <RankingSectionTitle>RANKING</RankingSectionTitle>
+                    <MoreBtn onClick={() => movePage("ranking")}>전체 보기 ></MoreBtn>
+                    <RankingContainer>
+                        <RankingBox>
+                            <RankingTitle>PLANET 랭킹</RankingTitle>
+                            <RankingList>
+                                <RankingLi>
+                                    <RankingNum>1</RankingNum>
+                                    <RankingName>토익뿌시기</RankingName>
+                                    <RankingContent>영어</RankingContent>
+                                    <RankingContent>초급</RankingContent>
+                                    <RankingContent>3/5</RankingContent>
+                                    <RankingContent>경험치</RankingContent>
+                                </RankingLi>
+                            </RankingList>
+                        </RankingBox>
+                        <RankingBox>
+                            <RankingTitle>여행자 랭킹</RankingTitle>
+                            <RankingList>
+                                <RankingLi>
+                                    <RankingNum>1</RankingNum>
+                                    <RankingName>민죠죠</RankingName>
+                                    <RankingContent>1235 EXP</RankingContent>
+                                </RankingLi>
+                            </RankingList>
+                        </RankingBox>
+                    </RankingContainer>
+                </RankingSection>
 
                 <TitleBox>
                     <Title>다른 PLANET도 구경해보세요</Title>
