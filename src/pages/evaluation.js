@@ -92,13 +92,13 @@ const Evaluate = styled.button`
 `;
 const CompleteBtn = styled.button`
     margin-top: 3rem;
-    width: 125px;
-    height: 40px;
+    width: 250px;
+    height: 46px;
     border-radius: 4px;
-    font-size: 18px;
-    border: solid 5px #686196;
+    border: none;
     background-color: #686196;
     color: white;
+    font-size: 18px;
 `;
 
 const Evaluation = ({ history }) => {
