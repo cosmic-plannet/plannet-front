@@ -62,7 +62,7 @@ const Complete = ({ history }) => {
                     <PlanetTitle>한 달만에 토익 뿌시기</PlanetTitle>
                 </PlanetTitleBox>
                 <SubTitle>평가가 완료되었습니다. 다른 PLANET을 찾아보세요!</SubTitle>
-                <CompleteBtn onClick={() => movePage("")}>평가 완료</CompleteBtn>
+                <CompleteBtn onClick={() => movePage("main")}>평가 완료</CompleteBtn>
             </Wrapper>
         </React.Fragment>
     );

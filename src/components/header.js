@@ -36,7 +36,7 @@ const Header = ({ history }) => {
 
     return (
         <Wrapper>
-            <Logo onClick={() => movePage("")} src={logo}></Logo>
+            <Logo onClick={() => movePage("main")} src={logo}></Logo>
             {/* <div onClick={() => movePage("login")}>로그인</div> */}
             <Profile onClick={() => movePage("mypage")}></Profile>
         </Wrapper>

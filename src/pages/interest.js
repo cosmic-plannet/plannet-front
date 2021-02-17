@@ -87,7 +87,7 @@ const Login = ({ history }) => {
             <CompleteBtn
                 onClick={() => {
                     complete();
-                    movePage("");
+                    movePage("main");
                 }}
             >
                 선택 완료
