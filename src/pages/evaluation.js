@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/header";
+import LeaderIcon from "../assets/leader.png";
+import MemberIcon from "../assets/member.png";
 //import { getQuestion, getToday } from "store/box";
 
 const Wrapper = styled.div`
@@ -11,23 +13,58 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 `;
-
-const PlanetTitle = styled.div``;
+const LeaderImg = styled.img`
+    width: 45px;
+    /* height: 45px; */
+    padding-top: 2rem;
+`;
+const PlanetTitleBox = styled.div`
+    display: flex;
+`;
+const PlanetDot = styled.div`
+    width: 13px;
+    height: 13px;
+    background-color: #7984a7;
+    border-radius: 1000px;
+    margin: 10px 10px;
+`;
+const PlanetTitle = styled.div`
+    font-size: 24px;
+`;
 const MemberBox = styled.div`
     display: flex;
     flex-direction: row;
+    padding: 1.5rem 0 1rem 0;
+    /* width: 100 */
 `;
-const MemberImg = styled.div`
-    margin: 0 1rem;
-    width: 50px;
-    height: 50px;
-    border: 1px solid black;
+const MemberImgBox = styled.div`
+    width: 130px;
+    height: 130px;
+    border: solid 6px #686196;
+    border-radius: 1000px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
-const Prev = styled.div``;
-const Next = styled.div``;
+const MemberImg = styled.img`
+    width: 75px;
+    height: 75px;
+`;
+const Prev = styled.div`
+    padding: 100px 36px 0 0;
+    color: #686196;
+    font-size: 18px;
+`;
+const Next = styled.div`
+    padding: 100px 0 0 36px;
+    color: #686196;
+    font-size: 18px;
+`;
 const MemberInfoBox = styled.div`
     display: flex;
     flex-direction: row;
+    padding-bottom: 4rem;
 `;
 const MemberInfo = styled.div`
     padding: 0 1rem;
@@ -35,25 +72,33 @@ const MemberInfo = styled.div`
 const EvaluateBox = styled.div`
     display: flex;
     flex-wrap: wrap;
+    font-size: 15px;
     width: 90%;
-    margin-left: 6rem;
+    /* margin-left: 6rem; */
 `;
 const Evaluate = styled.button`
-    border: 1px solid black;
-    width: 20%;
-    background-color: white;
-    margin: 1rem 2rem;
-    height: 50px;
+    width: 18%;
+    height: 106px;
+    margin: 2rem;
+    font-size: 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 3px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
 
     :hover {
-        background-color: purple;
+        background-color: #686196;
     }
 `;
 const CompleteBtn = styled.button`
-    border: 1px solid black;
-    width: 100px;
-    background-color: white;
-    margin-top: 1rem;
+    margin-top: 3rem;
+    width: 125px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    border: solid 5px #686196;
+    background-color: #686196;
+    color: white;
 `;
 
 const Evaluation = ({ history }) => {
@@ -92,10 +137,16 @@ const Evaluation = ({ history }) => {
         <React.Fragment>
             <Header></Header>
             <Wrapper>
-                <PlanetTitle>한 달만에 토익 뿌시기</PlanetTitle>
+                <LeaderImg src={LeaderIcon}></LeaderImg>
+                <PlanetTitleBox>
+                    <PlanetDot></PlanetDot>
+                    <PlanetTitle>한 달만에 토익 뿌시기</PlanetTitle>
+                </PlanetTitleBox>
                 <MemberBox>
                     <Prev onClick={() => setIndex(index - 1)}>이전</Prev>
-                    <MemberImg>이미지</MemberImg>
+                    <MemberImgBox>
+                        <MemberImg src={MemberIcon}></MemberImg>
+                    </MemberImgBox>
                     <Next onClick={() => setIndex(index + 1)}>다음</Next>
                 </MemberBox>
                 <MemberInfoBox>
