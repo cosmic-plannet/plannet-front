@@ -50,7 +50,7 @@ const PlanetDot = styled.div`
     height: 13px;
     background-color: #7984a7;
     border-radius: 50px;
-    margin: 7px 10px;
+    margin: 10px 10px;
 `;
 const PlanetName = styled.div`
     font-size: 20px;

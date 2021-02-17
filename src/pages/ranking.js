@@ -13,24 +13,62 @@ const Wrapper = styled.div`
     align-items: center;
     /* min-width: 1200px; */
 `;
-const Title = styled.div``;
-
-const RankingContainer = styled.div`
+const Title = styled.div`
+    font-size: 24px;
+    font-weight: bold;
+    color: #686196;
+    padding: 68px 0;
+`;
+const RankingSection = styled.div`
     display: flex;
     flex-direction: row;
     width: 80%;
 `;
-const RankingBox = styled.div`
+const RankingContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    text-align: center;
-    margin: 0 1rem;
+    /* border: 1px solid black; */
 `;
-const RankingTitle = styled.div``;
+const RankingBox = styled.div`
+    height: 393px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 4px 9px 4px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
+    margin: 0 1rem;
+    /* border: 1px solid black; */
+`;
+const RankingTitle = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    color: #686196;
+    padding: 1rem;
+    text-align: center;
+`;
 const RankingList = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 `;
-const RankingContent = styled.div``;
+const RankingLi = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+const RankingNum = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    color: #686196;
+`;
+const RankingName = styled.div`
+    font-size: 20px;
+    color: #686196;
+    flex: 1;
+`;
+const RankingContent = styled.div`
+    font-size: 18px;
+    padding: 0 0.3rem;
+`;
 
 const Ranking = ({ history }) => {
     // const [inputText, setInputText] = useState("");
@@ -48,32 +86,50 @@ const Ranking = ({ history }) => {
             <Header></Header>
             <Wrapper>
                 <Title>RANKING</Title>
-                <RankingContainer>
-                    <RankingBox>
+                <RankingSection>
+                    <RankingContainer>
                         <RankingTitle>PLANET 랭킹</RankingTitle>
-                        <RankingList>
-                            <RankingContent>1위</RankingContent>
-                            <RankingContent>2위</RankingContent>
-                            <RankingContent>3위</RankingContent>
-                        </RankingList>
-                    </RankingBox>
-                    <RankingBox>
+                        <RankingBox>
+                            <RankingList>
+                                <RankingLi>
+                                    <RankingNum>1</RankingNum>
+                                    <RankingName>토익뿌시기</RankingName>
+                                    <RankingContent>영어</RankingContent>
+                                    <RankingContent>초급</RankingContent>
+                                    <RankingContent>3/5</RankingContent>
+                                    <RankingContent>경험치</RankingContent>
+                                </RankingLi>
+                            </RankingList>
+                        </RankingBox>
+                    </RankingContainer>
+                    <RankingContainer>
                         <RankingTitle>여행자 랭킹</RankingTitle>
-                        <RankingList>
-                            <RankingContent>1위</RankingContent>
-                            <RankingContent>2위</RankingContent>
-                            <RankingContent>3위</RankingContent>
-                        </RankingList>
-                    </RankingBox>
-                    <RankingBox>
+                        <RankingBox>
+                            <RankingList>
+                                <RankingLi>
+                                    <RankingNum>1</RankingNum>
+                                    <RankingName>민죠죠</RankingName>
+                                    <RankingContent>1235 EXP</RankingContent>
+                                </RankingLi>
+                            </RankingList>
+                        </RankingBox>
+                    </RankingContainer>
+                    <RankingContainer>
                         <RankingTitle>영어 랭킹</RankingTitle>
-                        <RankingList>
-                            <RankingContent>1위</RankingContent>
-                            <RankingContent>2위</RankingContent>
-                            <RankingContent>3위</RankingContent>
-                        </RankingList>
-                    </RankingBox>
-                </RankingContainer>
+                        <RankingBox>
+                            <RankingList>
+                                <RankingLi>
+                                    <RankingNum>1</RankingNum>
+                                    <RankingName>토익뿌시기</RankingName>
+                                    <RankingContent>영어</RankingContent>
+                                    <RankingContent>초급</RankingContent>
+                                    <RankingContent>3/5</RankingContent>
+                                    <RankingContent>경험치</RankingContent>
+                                </RankingLi>
+                            </RankingList>
+                        </RankingBox>
+                    </RankingContainer>
+                </RankingSection>
             </Wrapper>
         </React.Fragment>
     );
