@@ -42,6 +42,7 @@ const LoginBtn = styled.button`
     height: 60px;
     background-color: white;
     color: #686196;
+    font-size: 18px;
 `;
 
 const Login = ({ history }) => {
@@ -63,7 +64,6 @@ const Login = ({ history }) => {
             <SubTitle>스터디에 참여하여,</SubTitle>
             <SubTitle>팀원들과 PLANET을 멋지게 성장시켜 보세요!</SubTitle>
             <GoogleLogin
-                buttonText=" 구글 아이디로 로그인하기"
                 clientId="928190155742-snpeufjsnt52ci520cnansb21sp1gi1p.apps.googleusercontent.com"
                 render={(props) => (
                     <LoginBtn
@@ -71,8 +71,9 @@ const Login = ({ history }) => {
                             movePage("interest");
                             props.onClick();
                         }}
-                        style={{ color: "black" }}
-                    ></LoginBtn>
+                    >
+                        구글 아이디로 로그인하기
+                    </LoginBtn>
                 )}
                 onSuccess={(result) => setUser(result)}
                 onFailure={(result) => alert("실패")}

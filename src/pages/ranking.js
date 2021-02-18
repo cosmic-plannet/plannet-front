@@ -56,6 +56,7 @@ const RankingList = styled.div`
 const RankingLi = styled.div`
     display: flex;
     flex-direction: row;
+    margin: 0.6rem 0;
 `;
 const RankingNum = styled.div`
     font-size: 20px;
@@ -78,9 +79,48 @@ const Ranking = ({ history }) => {
     // const dispatch = useDispatch();
 
     // useEffect(() => {});
+    let planetRanking = [
+        { name: "토익 990점", category: "영어", level: "전문가", person: "8명", exp: 19274, id: 0 },
+        { name: "토린이 모여", category: "영어", level: "초급", person: "10명", exp: 12859, id: 1 },
+        { name: "장고 플젝", category: "컴퓨터", level: "중급", person: "4명", exp: 15211, id: 2 },
+        { name: "컴활 1급", category: "자격증", level: "전문가", person: "6명", exp: 11859, id: 3 },
+        { name: "ISTQB 필합", category: "컴퓨터", level: "고급", person: "5명", exp: 10343, id: 3 },
+        { name: "오픽 AL 따자", category: "영어", level: "고급", person: "3명", exp: 9883, id: 3 },
+        { name: "토스 7이상 목표", category: "영어", level: "고급", person: "6명", exp: 8762, id: 3 },
+    ];
+    let userRanking = [
+        { name: "민호지", exp: 18462, id: 0 },
+        { name: "최현지", exp: 17812, id: 0 },
+        { name: "이은규", exp: 16012, id: 0 },
+        { name: "조현규", exp: 15010, id: 0 },
+        { name: "박단비", exp: 14420, id: 0 },
+        { name: "김부각", exp: 12712, id: 0 },
+        { name: "김해진", exp: 10705, id: 0 },
+    ];
+    let englishRanking = [
+        { name: "토익 990점", category: "영어", level: "전문가", person: "8명", exp: 19274, id: 0 },
+        { name: "토린이 모여", category: "영어", level: "초급", person: "10명", exp: 12859, id: 1 },
+        { name: "오픽 AL 따자", category: "영어", level: "고급", person: "3명", exp: 9883, id: 3 },
+        { name: "토스 7이상 목표", category: "영어", level: "고급", person: "6명", exp: 8762, id: 3 },
+        { name: "유학 준비방", category: "영어", level: "고급", person: "3명", exp: 7238, id: 3 },
+        { name: "오픽 IM 넘기", category: "영어", level: "중급", person: "9명", exp: 7023, id: 3 },
+        { name: "해커스 700+", category: "영어", level: "중급", person: "14명", exp: 6932, id: 3 },
+    ];
+    let eRanking = [
+        { name: "HSK", category: "제2외국어", level: "중급", person: "7명", exp: 12985, id: 0 },
+        { name: "JLPT", category: "제2외국어", level: "고급", person: "5명", exp: 11985, id: 0 },
+        { name: "HSK7급", category: "제2외국어", level: "고급", person: "6명", exp: 11629, id: 0 },
+        { name: "DELE", category: "제2외국어", level: "중급", person: "3명", exp: 9572, id: 0 },
+        { name: "러시아어", category: "제2외국어", level: "초급", person: "4명", exp: 8563, id: 0 },
+        { name: "일본어", category: "제2외국어", level: "고급", person: "4명", exp: 7175, id: 0 },
+        { name: "스페인어", category: "제2외국어", level: "초급", person: "5명", exp: 5967, id: 0 },
+    ];
+
     const selects = ["영어", "컴퓨터", "취직/면접", "제2외국어", "자격증", "시험"];
     const { Option } = Select;
+    const [here, setHere] = useState(0);
     const handleChange = (value) => {
+        setHere(value);
         console.log(`selected ${value}`);
     };
 
@@ -98,14 +138,18 @@ const Ranking = ({ history }) => {
                         <RankingTitle>PLANET 랭킹</RankingTitle>
                         <RankingBox>
                             <RankingList>
-                                <RankingLi>
-                                    <RankingNum>1</RankingNum>
-                                    <RankingName>토익뿌시기</RankingName>
-                                    <RankingContent>영어</RankingContent>
-                                    <RankingContent>초급</RankingContent>
-                                    <RankingContent>3/5</RankingContent>
-                                    <RankingContent>경험치</RankingContent>
-                                </RankingLi>
+                                {planetRanking.map((planet, index) => {
+                                    return (
+                                        <RankingLi>
+                                            <RankingNum>{index + 1}</RankingNum>
+                                            <RankingName>{planet.name}</RankingName>
+                                            <RankingContent>{planet.category}</RankingContent>
+                                            <RankingContent>{planet.level}</RankingContent>
+                                            <RankingContent>{planet.person}</RankingContent>
+                                            <RankingContent>{planet.exp}</RankingContent>
+                                        </RankingLi>
+                                    );
+                                })}
                             </RankingList>
                         </RankingBox>
                     </RankingContainer>
@@ -113,11 +157,15 @@ const Ranking = ({ history }) => {
                         <RankingTitle>여행자 랭킹</RankingTitle>
                         <RankingBox>
                             <RankingList>
-                                <RankingLi>
-                                    <RankingNum>1</RankingNum>
-                                    <RankingName>민죠죠</RankingName>
-                                    <RankingContent>1235 EXP</RankingContent>
-                                </RankingLi>
+                                {userRanking.map((user, index) => {
+                                    return (
+                                        <RankingLi>
+                                            <RankingNum>{index + 1}</RankingNum>
+                                            <RankingName>{user.name}</RankingName>
+                                            <RankingContent>{user.exp}</RankingContent>
+                                        </RankingLi>
+                                    );
+                                })}
                             </RankingList>
                         </RankingBox>
                     </RankingContainer>
@@ -135,16 +183,37 @@ const Ranking = ({ history }) => {
                             </Select>
                         </RankingTitle>
                         <RankingBox>
-                            <RankingList>
-                                <RankingLi>
-                                    <RankingNum>1</RankingNum>
-                                    <RankingName>토익뿌시기</RankingName>
-                                    <RankingContent>영어</RankingContent>
-                                    <RankingContent>초급</RankingContent>
-                                    <RankingContent>3/5</RankingContent>
-                                    <RankingContent>경험치</RankingContent>
-                                </RankingLi>
-                            </RankingList>
+                            {here === 0 ? (
+                                <RankingList>
+                                    {englishRanking.map((planet, index) => {
+                                        return (
+                                            <RankingLi>
+                                                <RankingNum>{index + 1}</RankingNum>
+                                                <RankingName>{planet.name}</RankingName>
+                                                <RankingContent>{planet.category}</RankingContent>
+                                                <RankingContent>{planet.level}</RankingContent>
+                                                <RankingContent>{planet.person}</RankingContent>
+                                                <RankingContent>{planet.exp}</RankingContent>
+                                            </RankingLi>
+                                        );
+                                    })}
+                                </RankingList>
+                            ) : (
+                                <RankingList>
+                                    {eRanking.map((planet, index) => {
+                                        return (
+                                            <RankingLi>
+                                                <RankingNum>{index + 1}</RankingNum>
+                                                <RankingName>{planet.name}</RankingName>
+                                                <RankingContent>{planet.category}</RankingContent>
+                                                <RankingContent>{planet.level}</RankingContent>
+                                                <RankingContent>{planet.person}</RankingContent>
+                                                <RankingContent>{planet.exp}</RankingContent>
+                                            </RankingLi>
+                                        );
+                                    })}
+                                </RankingList>
+                            )}
                         </RankingBox>
                     </RankingContainer>
                 </RankingSection>
