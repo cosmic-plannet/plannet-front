@@ -102,6 +102,6 @@
 
 <table style="border-collapse: collapse; border: none;" bgcolor="ffffff">
   <tr style="border: none;" align="center">
-    <td style="border: none;" align="center"><a href="https://github.com/minjyo"><img src="https://avatars.githubusercontent.com/u/29202047?v=4" width="100px;" alt=""/><br /><sub><b>minjyo</b></sub></a><br /><a href="https://github.com/orgs/cosmic-plannet/people/minjyo" title="Code">🗃 👩‍💻</a></td>
+    <td style="border: none;" align="center"><a href="https://github.com/minjyo"><img src="https://avatars.githubusercontent.com/u/24283401?v=4" width="100px;" alt=""/><br /><sub><b>minjyo</b></sub></a><br /><a href="https://github.com/orgs/cosmic-plannet/people/minjyo" title="Code">🗃 👩‍💻</a></td>
   </tr>
 </table>
