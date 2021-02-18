@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<h1 align="center">🪐PLAN:NET</h1>
+<p>
+</p>
+<div align="center">
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=#61DAFB" class="center"/></a>&nbsp;
+<img src="https://img.shields.io/badge/styled-components-DB7093?style=flat-square&logo=styled-components&logoColor=#DB7093" class="center"/></a>&nbsp;
+<img src="https://img.shields.io/badge/redux-764ABC?style=flat-square&logo=redux&logoColor=#764ABC" class="center"/></a>&nbsp;
+</div>
+<p>
+</p>
+<div>&nbsp;</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  
 
-## Available Scripts
 
-In the project directory, you can run:
+> 👩‍👧‍👧 신뢰도가 보장된 팀원과 함께하는 온라인 스터디 플랫폼
+<div>&nbsp;</div>
+  
 
-### `yarn start`
+## 구현 목표
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+코로나19로 인해 비대면 스터디가 활성화되고 있다. 하지만 팀원의 문제로 스터디의 목표를 달성하지 못하고 해산하는 경우가 많이 발생한다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+이러한 문제점을 인지하고, 신뢰도가 보장된 팀원을 구해 꾸준히 스터디를 지속할 수 있도록 하여 목표 달성을 돕는 시스템을 구현하고자 한다.  
+<div>&nbsp;</div>
+  
 
-### `yarn test`
+  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 주요 기능
 
-### `yarn build`
+### 로그인
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+로그인은 Google OAuth를 통해 가능하다. 최초 로그인 시, 관심있는 카테고리를 다수 선택할 수 있다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 스터디 추천
 
-### `yarn eject`
+아직 어떤 스터디에도 참여하지 않은 유저에게 스터디를 추천한다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+유저가 선택한 관심 카테고리를 기반으로 추천될 스터디들이 결정되며, 노출되는 순서는 해당 스터디에 참여하고 있는 유저들의 경험치 등을 기반으로 정해진다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 스터디 생성 및 가입
 
-## Learn More
+스터디는 Danbee.ai를 활용해 만든 챗봇을 통해 생성할 수 있으며, 스터디를 생성한 유저는 자동적으로 방장 권한을 갖게 된다. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+그 외 유저들은 추천받은 스터디 중 스터디를 선택해 참여할 수 있다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+방장은 참여한 스터디원의 수가 충분하다고 판단하면 해당 스터디를 시작할 수 있다.
 
-### Code Splitting
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 스터디 진행
 
-### Analyzing the Bundle Size
+스터디원들은 각자의 할 일을 추가, 완료하여 달성률을 올릴 수 있으며, 다른 스터디원의 달성률 또한 확인 가능하다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+로그인한 구글 아이디를 통해 구글 meets를 생성하여 다른 스터디원과 함께 스터디를 진행할 수 있으며, 스터디마다 스터디원들의 출석률을 체크한다.
 
-### Making a Progressive Web App
+스터디원의 출결이나 달성률 등을 토대로 페널티가 부과된다. 부과된 페널티가 스터디의 최대 페널티에 다다르면 해당 팀원은 스터디에서 강제 퇴출된다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  
 
-### Advanced Configuration
+### 스터디 완료
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+스터디의 달성률이 100에 도달하면, 방장에게는 스터디를 종료할 수 있는 권한이 주어진다. 방장이 스터디를 종료하게 되면, 모든 스터디원은 다른 스터디원들의 평가를 할 수 있는 페이지에 접근할 수 있다.
 
-### Deployment
+각 스터디원의 평가와 할 일 달성률, 출결 등을 기반으로 경험치와 업적 정보를 업데이트된다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  
 
-### `yarn build` fails to minify
+### 랭킹
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+각 스터디의 달성률, 스터디원의 할 일 달성률, 출결률 등을 반영하여 매일 모든 스터디 혹은 각 카테고리마다 스터디의 랭킹을 산출한다.
+
+각 유저의 경험치, 업적 등을 반영하여 매일 모든 유저의 랭킹을 산출한다.
+<div>&nbsp;</div>
+
+  
+
+  
+## Contributors
+
+<table style="border-collapse: collapse; border: none;" bgcolor="ffffff">
+  <tr style="border: none;" align="center">
+    <td style="border: none;" align="center"><a href="https://github.com/minjyo"><img src="https://avatars.githubusercontent.com/u/29202047?v=4" width="100px;" alt=""/><br /><sub><b>kyueun</b></sub></a><br /><a href="https://github.com/orgs/cosmic-plannet/people/kyueun" title="Code">🗃 👩‍💻</a></td>
+  </tr>
+</table>
