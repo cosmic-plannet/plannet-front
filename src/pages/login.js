@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from "../assets/logo.png";
 import plannet from "../assets/plannet.png";
 import { useDispatch, useSelector } from "react-redux";
+import GoogleLogin from "react-google-login";
 //import { getQuestion, getToday } from "store/box";
 
 const Wrapper = styled.div`
@@ -54,7 +55,22 @@ const Login = ({ history }) => {
             <Title>나만의 온라인 스터디 플랫폼, PLAN:NET</Title>
             <SubTitle>스터디에 참여하여,</SubTitle>
             <SubTitle>팀원들과 PLANET을 멋지게 성장시켜 보세요!</SubTitle>
-            <LoginBtn onClick={() => movePage("interest")}>구글 아이디로 로그인하기</LoginBtn>
+            <GoogleLogin
+                buttonText=" 구글 아이디로 로그인하기"
+                clientId="928190155742-snpeufjsnt52ci520cnansb21sp1gi1p.apps.googleusercontent.com"
+                render={(props) => (
+                    <LoginBtn
+                        onClick={() => {
+                            movePage("interest");
+                            props.onClick();
+                        }}
+                        style={{ color: "black" }}
+                    ></LoginBtn>
+                )}
+                onSuccess={(result) => alert("성공" + result)}
+                onFailure={(result) => alert("실패")}
+                cookiePolicy={"single_host_origin"}
+            />
         </Wrapper>
     );
 };
