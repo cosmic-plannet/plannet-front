@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/slogo.png";
 import user from "../assets/user.png";
+import { useDispatch, useSelector } from "react-redux";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -21,21 +22,23 @@ const LogoBox = styled.div`
 const Logo = styled.img`
     width: 66px;
     height: 35px;
-    margin-left: 2rem;
+    margin-left: 5rem;
     /* flex: 1; */
     /* margin-top: 15px; */
 `;
-
+const UserName = styled.div``;
 const Profile = styled.img`
     width: 25px;
     height: 25px;
-    margin-right: 10px;
+    margin: 0 10px;
     /* border: 1px solid black; */
     /* margin-right: 13px; */
     /* margin: 13px 13px 13px 0; */
 `;
 
 const Header = ({ history }) => {
+    const username = useSelector((state) => state.user.username);
+
     const movePage = (page) => {
         history.push(`/${page}`);
     };
@@ -45,6 +48,7 @@ const Header = ({ history }) => {
             <LogoBox>
                 <Logo onClick={() => movePage("main")} src={logo}></Logo>
             </LogoBox>
+            <UserName>{username}</UserName>
             <Profile onClick={() => movePage("mypage")} src={user}></Profile>
         </Wrapper>
     );

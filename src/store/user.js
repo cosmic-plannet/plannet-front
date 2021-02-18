@@ -1,18 +1,21 @@
 import { createAction, handleActions } from "redux-actions";
 import { createRequestAction } from "./createRequestAction";
 
-export const [GETUSER, GETUSER_SUCCESS, GETUSER_FAIL] = createRequestAction("GETUSER");
+export const [LOGIN, LOGIN_SUCCESS, LOGIN_FAIL] = createRequestAction("LOGIN");
 
-export const getUser = createAction(GETUSER, (id) => ({ id }));
+export const login = createAction(LOGIN, (id) => ({ id }));
 
-const initialState = {};
+const initialState = {
+    username: "",
+};
 
 const user = handleActions(
     {
-        [GETUSER_SUCCESS]: (state, { payload: user }) => ({
+        [LOGIN_SUCCESS]: (state, { payload: user }) => ({
             ...state,
+            username: user,
         }),
-        [GETUSER_FAIL]: (state, { payload: error }) => ({
+        [LOGIN_FAIL]: (state, { payload: error }) => ({
             ...state,
         }),
     },

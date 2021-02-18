@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import plannet from "../assets/plannet.png";
+import { login } from "../store/user";
 import { useDispatch, useSelector } from "react-redux";
 import GoogleLogin from "react-google-login";
 //import { getQuestion, getToday } from "store/box";
@@ -44,8 +45,14 @@ const LoginBtn = styled.button`
 `;
 
 const Login = ({ history }) => {
+    const dispatch = useDispatch();
+
     const movePage = (page) => {
         history.push(`/${page}`);
+    };
+    const setUser = (info) => {
+        console.log(info);
+        dispatch(login(info.profileObj.name));
     };
 
     return (
@@ -67,7 +74,7 @@ const Login = ({ history }) => {
                         style={{ color: "black" }}
                     ></LoginBtn>
                 )}
-                onSuccess={(result) => alert("성공" + result)}
+                onSuccess={(result) => setUser(result)}
                 onFailure={(result) => alert("실패")}
                 cookiePolicy={"single_host_origin"}
             />
