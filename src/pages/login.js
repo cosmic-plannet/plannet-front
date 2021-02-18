@@ -16,7 +16,7 @@ const Logo = styled.img`
     width: 126px;
     height: 68px;
     padding: 0.5rem 0;
-    padding-top: 30%;
+    padding-top: 236px;
 `;
 const Plannet = styled.img`
     width: 283px;

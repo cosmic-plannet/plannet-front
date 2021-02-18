@@ -15,8 +15,8 @@ const Wrapper = styled.div`
 const Logo = styled.img`
     width: 126px;
     height: 68px;
-    padding: 0.5rem 0;
-    padding-top: 20%;
+    margin-top: 100px;
+    margin-bottom: 30px;
 `;
 const Plannet = styled.img`
     width: 283px;
@@ -37,7 +37,7 @@ const InterestBox = styled.div`
 const Interest = styled.button`
     width: 22%;
     height: 106px;
-    margin: 3rem;
+    margin: 2rem 3rem 2rem 3rem;
     font-size: 24px;
     border: none;
     border-radius: 4px;
